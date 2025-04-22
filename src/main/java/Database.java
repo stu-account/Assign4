@@ -7,9 +7,11 @@ public class Database {
     private static Database instance;
     private Connection connection;
 
-    private String url = "jdbc:mariadb://localhost:3306/u24616592_u24579484_northwind";
-    private String user = "root";
-    private String password = "boop";
+    // Fetching the environment variables
+    String url = System.getenv("dvdrental_DB_PROTO") + "://" + System.getenv("dvdrental_DB_HOST") + ":" + System.getenv("dvdrental_DB_PORT") + "/" + System.getenv("dvdrental_DB_NAME");
+    String user = System.getenv("dvdrental_DB_USERNAME");
+    String password = System.getenv("dvdrental_DB_PASSWORD");
+
 
     //private constructor to prevent instantiation from outside
     private Database(){
