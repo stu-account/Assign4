@@ -20,6 +20,9 @@ public class Reports {
         try{
             Statement stmt = connection.createStatement();
             String query = "SELECT category, COUNT(*) AS NumItems FROM products GROUP BY category";
+            //String query = "SELECT w.warehouse_name, p.category, COUNT(*) AS NumProducts " +
+                    //"FROM products AS p " +
+                   // "JOIN warehouses AS w ON p.warehouse_id = w.warehouse_id ";
             ResultSet result = stmt.executeQuery(query);
             while (result.next()){
                 String category = result.getString("category");
